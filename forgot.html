@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-SCALE=1.0">
+    <title>safetrace</title>
+    <link rel="stylesheet" href="forgot.css">
+</head>
+
+<body>
+    <div class="blob"></div>
+    <div class="wrapper">
+        <form id="forgotPasswordForm">
+            <h2>forgot password</h2>
+            <div class="input-box">
+                <span class="icon">
+                    <ion-icon name="question"></ion-icon>
+                </span>
+                <input type="text" id="securityAnswer" required>
+                <label>what is your favorite cricket team?</label>
+            </div>
+            <div class="input-box">
+                <span class="icon">
+                    <ion-icon name="lock-closed"></ion-icon>
+                </span>
+                <input type="password" id="newPassword" required>
+                <label>New Password</label>
+            </div>
+            <button type="button" onclick="checkSecurityQuestion()">Check Security Question</button>
+            <div id="resetPasswordSection" style="display: none;">
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="lock-closed"></ion-icon>
+                    </span>
+                    <input type="password" id="confirmNewPassword" required>
+                    <label>Confirm New Password</label>
+                </div>
+                <button type="button" onclick="resetPassword()">Reset Password</button>
+            </div>
+            <div class="register link">
+                <p>Don't have an account? <a href="register.html">Register</a></p>
+            </div>
+        </form>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>
+        function checkSecurityQuestion() {
+            var securityAnswer = document.getElementById('securityAnswer').value.toLowerCase(); // Assuming answer is case insensitive
+            var correctAnswer = 'your favorite team'; // Replace with the correct security answer
+
+            if (securityAnswer === correctAnswer.toLowerCase()) {
+                document.getElementById('resetPasswordSection').style.display = 'block';
+            } else {
+                alert('Incorrect answer to security question. Please try again.');
+            }
+        }
+
+        function resetPassword() {
+            var newPassword = document.getElementById('newPassword').value;
+            var confirmNewPassword = document.getElementById('confirmNewPassword').value;
+
+            if (newPassword !== confirmNewPassword) {
+                alert('Passwords do not match. Please re-enter.');
+            } else {
+                // Password reset successful
+                alert('Password has been reset successfully.');
+
+                // Redirect to login page after password reset confirmation
+                window.location.href = 'login.html'; // Replace 'login.html' with your login page
+            }
+        }
+    </script>
+</body>
+
+</html>

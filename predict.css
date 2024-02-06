@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #252620;
+    color: #efeaea;
+    overflow-x: hidden;
+    background-image: url(cliparts/predictbg.jpg);
+    background-size: cover;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: #252620;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;
+    padding: 10px 20px; /* Increased padding */
+    font-size: 18px; /* Increased font size */
+}
+
+/* Add styles for other elements in the navigation bar as needed */
+
+.predict-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 70vh;
+}
+
+.predict-box {
+    text-align: center;
+    padding: 40px; 
+    width: 300px; 
+    font-size: 24px; 
+    margin-bottom: 20px;
+}
+
+.predict-btn {
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #ee2d07;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: block; /* Center the button */
+    margin: 0 auto; /* Center the button */
+}
+
+.predict-btn:hover {
+    background-color: #fd7e14;
+}
+
+.predict-btn:active {
+    background-color: #fd7e14;
+}
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.btn {
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #ee2d07;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #fd7e14;
+}
+
+.btn:active {
+    background-color: #fd7e14;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #252620;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    padding: 10px; /* Increased padding */
+    top: 100%; /* Updated to top */
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    top: 100%; 
+}
+
+
+.dropdown-item {
+    color: #fff !important;
+    padding: 10px 20px; /* Increased padding */
+    font-size: 16px; /* Increased font size */
+}
+
+.prediction-text {
+    color: #fff;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 25px;
+}

@@ -1,0 +1,167 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #454545;
+    overflow-x: hidden;
+    overflow-y: auto;
+} 
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    animation: fadeIn 1.5s ease-in-out; 
+    z-index: 1;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+}
+
+
+
+.card {
+    width: calc(25% - 20px);
+    height: 40vh;
+    margin: 20px;
+    background: #8c2a21; 
+    display: flex;
+    align-items: flex-end;
+    padding: 2rem 1rem;
+    position: relative;
+    transition: 0.5s all ease-in-out;
+    box-sizing: border-box;
+    border-radius: 10px; 
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(13, 36, 63, 0.3), rgba(13, 36, 63, 1));
+    z-index: 2;
+    opacity: 0;
+    transition: 0.5s all;
+    border-radius: 10px;
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+}
+
+
+.card .info {
+    position: relative;
+    color: #fff;
+    z-index: 3;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.5s all;
+}
+
+.card:hover .info {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card .info h1 {
+    line-height: 40px;
+    margin-bottom: 10px;
+    color: white; 
+}
+
+.card .info p {
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.card .info .btn {
+    background: #fff;
+    padding: 0.5rem 1rem;
+    color: #000;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: .4s ease-in-out;
+}
+
+.card .info .btn:hover {
+    background: #fc5185;
+    color: #fff;
+    box-shadow: 0 7px 10px rgba(0, 0, 0, 0.5);
+}
+
+.information-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    background: white;
+    background-color:#454545; 
+    margin-top: 20px; 
+}
+
+.info-box {
+    max-width: 800px; 
+    padding: 20px;
+    border: 2px solid #8c2a21; 
+    border-radius: 10px; 
+}
+
+.info {
+    margin: 0; 
+    font-size: 16px; 
+}
+
+.info a 
+{
+    color: #9f3924; 
+    text-decoration: underline; 
+}

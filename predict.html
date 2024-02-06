@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict</title>
+    <link rel="stylesheet" href="predict.css">
+    
+
+    <link rel="stylesheet" href="navbar.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="list">
+                <li><a href="homepage.html" class="link">Home</a></li>
+                <li><a href="predict.html" class="link">Predict</a></li>
+                <li><a href="awareness2.html" class="link">Awareness</a></li>
+                <li><a href="helpline.html" class="link">Helpline</a></li>
+                <li><a href="about.html" class="link">About us</a></li>
+                <li><a href="signin.html" class="link">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="predict-container">
+        <div class="b1" class="predict-box" id="stateBox">
+            <h2>Select State/UT</h2>
+            <br>
+            <br>
+            <div class="dropdown">
+                <select class="btn">
+                    <option disabled selected>Select State/UT</option>
+                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                    <option value="Assam">Assam</option>
+                    <option value="Bihar">Bihar</option>
+                    <option value="Chhattisgarh">Chhattisgarh</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                    <option value="Jammu & Kashmir">Jammu & Kashmir</option>
+                    <option value="Jharkhand">Jharkhand</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Manipur">Manipur</option>
+                    <option value="Meghalaya">Meghalaya</option>
+                    <option value="Mizoram">Mizoram</option>
+                    <option value="Nagaland">Nagaland</option>
+                    <option value="Odisha">Odisha</option>
+                    <option value="Punjab">Punjab</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                    <option value="Sikkim">Sikkim</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Tripura">Tripura</option>
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="Uttarakhand">Uttarakhand</option>
+                    <option value="West Bengal">West Bengal</option>
+                    <option value="A&N Islands">A&N Islands</option>
+                    <option value="Chandigarh">Chandigarh</option>
+                    <option value="D&N Haveli">D&N Haveli</option>
+                    <option value="Daman & Diu">Daman & Diu</option>
+                    <option value="Delhi UT">Delhi UT</option>
+                    <option value="Lakshadweep">Lakshadweep</option>
+                    <option value="Puducherry">Puducherry</option>
+
+                </select>
+            </div>
+        </div>
+
+        <div class="b2" class="predict-box" id="crimeBox">
+            <h2>Select type of Crime</h2>
+            <br>
+            <br>
+            <div class="dropdown">
+                <select class="btn">
+                    <option disabled selected>Select Type of Crime</option>
+                    <option value="For Adoption">For Adoption</option>
+                    <option value="For Begging">For Begging</option>
+                    <option value="For Camel racing">For Camel racing</option>
+                    <option value="For Illicit intercourse">For Illicit intercourse</option>
+                    <option value="For marriage">For marriage</option>
+                    <option value="For Prostitution">For Prostitution</option>
+                    <option value="For Ransom">For Ransom</option>
+                    <option value="For Revenge">For Revenge</option>
+                    <option value="For Sale">For Sale</option>
+                    <option value="For Selling body parts">For Selling body parts</option>
+                    <option value="For Slavery">For Slavery</option>
+                    <option value="For unlawful activity">For unlawful activity</option>
+
+                </select>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="p">
+    <button class="predict-btn" onclick="simulatePrediction()">Predict</button>
+    
+    <div id="predictionResult" class="prediction-text"></div>
+    </div>
+
+<!-- ... (your HTML code) ... -->
+
+<script>
+    function simulatePrediction() {
+        console.log("Button clicked"); // Check if the button click is registered
+
+        var selectedState = document.getElementById("stateBox").querySelector("select").value;
+        var selectedCrimeType = document.getElementById("crimeBox").querySelector("select").value;
+
+
+        // Simulate prediction based on selected values
+        var predictionResult = getSimulatedResult(selectedState, selectedCrimeType);
+
+        console.log("Prediction Result:", predictionResult); // Check the predicted result
+
+        // Display the result
+        document.getElementById("predictionResult").innerHTML = "Predicted Crime Rate: " + predictionResult;
+    }
+
+    function getSimulatedResult(state, crimeType) {
+        // Define pre-coded results based on your example
+        var results = {
+            "Andhra Pradesh_For Adoption": 0.3208045825768977,
+            "Andhra Pradesh_For Begging": 0.49637069926239974,
+            "Andhra Pradesh_For Camel racing": 0.6719368159479018,
+            "Andhra Pradesh_For marriage": 2.0764657494318897,
+            "Andhra Pradesh_For Prostitution": 1.0230690493188916,
+            "Andhra Pradesh_For Ransom": 1.1986351660043937,
+            "Andhra Pradesh_For Revenge": 1.3742012826898957,
+            "Andhra Pradesh_For Sale": 1.5497673993753978,
+            "Andhra Pradesh_For Selling body parts": 1.7253335160608856,
+            "Andhra Pradesh_For Slavery": 1.9008996327463876,
+            "Andhra Pradesh_For unlawful activity": 2.4275979828028937,
+            "Andhra Pradesh_For Illicit intercourse": 0.8475029326333896,
+
+
+            "Arunachal Pradesh_For Adoption": 0.5208567825768977,
+            "Arunachal Pradesh_For Begging": 0.46347069926239984,
+            "Arunachal Pradesh_For Camel racing": 0.5719361859479027,
+            "Arunachal Pradesh_For marriage": 2.3764657494343894,
+            "Arunachal Pradesh_For Prostitution": 1.6230690487488918,
+            "Arunachal Pradesh_For Ransom": 1.7986315660043973,
+            "Arunachal Pradesh_For Revenge": 1.6742012826898748,
+            "Arunachal Pradesh_For Sale": 1.2434673993753978,
+            "Arunachal Pradesh_For Selling body parts": 1.7853335160608543,
+            "Arunachal Pradesh_For Slavery": 2.100899480363876,
+            "Arunachal Pradesh_For unlawful activity": 2.6327597982802807,
+            "Arunachal Pradesh_For Illicit intercourse": 1.1475029326333896,
+
+
+            "Assam_For Adoption": 0.5308914825768991,
+            "Assam_For Begging": 0.4912304598746234,
+            "Assam_For Camel racing": 0.5487143859642725,
+            "Assam_For marriage": 2.3968151463829584,
+            "Assam_For Prostitution": 1.6538271648374921,
+            "Assam_For Ransom": 1.7185473284469832,
+            "Assam_For Revenge": 1.6543726893819765,
+            "Assam_For Sale": 1.2148965710239487,
+            "Assam_For Selling body parts": 1.7805633902894337,
+            "Assam_For Slavery": 2.1698013520486238,
+            "Assam_For unlawful activity": 2.6835790817431964,
+            "Assam_For Illicit intercourse": 1.1765486932358654,
+
+
+            "Bihar_For Adoption": 0.5408267825768972,
+            "Bihar_For Begging": 0.5012344598746224,
+            "Bihar_For Camel racing": 0.5587183859642715,
+            "Bihar_For marriage": 2.4068152463829594,
+            "Bihar_For Prostitution": 1.6638272648374911,
+            "Bihar_For Ransom": 1.7285474284469822,
+            "Bihar_For Revenge": 1.6643725893819756,
+            "Bihar_For Sale": 1.2248966710239477,
+            "Bihar_For Selling body parts": 1.7905634902894327,
+            "Bihar_For Slavery": 2.1798014520486228,
+            "Bihar_For unlawful activity": 2.6935791817431954,
+            "Bihar_For Illicit intercourse": 1.1865487932358644,
+
+
+            "Chhattisgarh_For Adoption": 0.6208267825768972,
+            "Chhattisgarh_For Begging": 0.5712344598746224,
+            "Chhattisgarh_For Camel racing": 0.6287183859642715,
+            "Chhattisgarh_For marriage": 2.7168152463829594,
+            "Chhattisgarh_For Prostitution": 1.7738272648374911,
+            "Chhattisgarh_For Ransom": 1.8285474284469822,
+            "Chhattisgarh_For Revenge": 1.7743725893819756,
+            "Chhattisgarh_For Sale": 1.3348966710239477,
+            "Chhattisgarh_For Selling body parts": 1.8905634902894327,
+            "Chhattisgarh_For Slavery": 2.2798014520486228,
+            "Chhattisgarh_For unlawful activity": 2.7935791817431954,
+            "Chhattisgarh_For Illicit intercourse": 1.3965487932358644,
+
+
+            "Goa_For Adoption": 0.7208267825768972,
+            "Goa_For Begging": 0.6712344598746224,
+            "Goa_For Camel racing": 0.7287183859642715,
+            "Goa_For marriage": 2.8168152463829594,
+            "Goa_For Prostitution": 1.8738272648374911,
+            "Goa_For Ransom": 1.9285474284469822,
+            "Goa_For Revenge": 1.8743725893819756,
+            "Goa_For Sale": 1.4348966710239477,
+            "Goa_For Selling body parts": 1.9905634902894327,
+            "Goa_For Slavery": 2.3798014520486228,
+            "Goa_For unlawful activity": 2.8935791817431954,
+            "Goa_For Illicit intercourse": 1.4965487932358644,
+
+
+            "Gujarat_For Adoption": 0.8208267825768972,
+            "Gujarat_For Begging": 0.7712344598746224,
+            "Gujarat_For Camel racing": 0.8287183859642715,
+            "Gujarat_For marriage": 2.9168152463829594,
+            "Gujarat_For Prostitution": 1.9738272648374911,
+            "Gujarat_For Ransom": 2.0285474284469822,
+            "Gujarat_For Revenge": 1.9743725893819756,
+            "Gujarat_For Sale": 1.5348966710239477,
+            "Gujarat_For Selling body parts": 2.0905634902894327,
+            "Gujarat_For Slavery": 2.4798014520486228,
+            "Gujarat_For unlawful activity": 2.9935791817431954,
+            "Gujarat_For Illicit intercourse": 1.5965487932358644,
+
+
+            "Haryana_For Adoption": 0.9208267825768972,
+            "Haryana_For Begging": 0.8712344598746224,
+            "Haryana_For Camel racing": 0.9287183859642715,
+            "Haryana_For marriage": 3.0168152463829594,
+            "Haryana_For Prostitution": 2.0738272648374911,
+            "Haryana_For Ransom": 2.1285474284469822,
+            "Haryana_For Revenge": 2.0743725893819756,
+            "Haryana_For Sale": 1.6348966710239477,
+            "Haryana_For Selling body parts": 2.1905634902894327,
+            "Haryana_For Slavery": 2.5798014520486228,
+            "Haryana_For unlawful activity": 3.0935791817431954,
+            "Haryana_For Illicit intercourse": 1.6965487932358644,
+
+            "Himachal Pradesh_For Adoption": 0.1208267825768993,
+            "Himachal Pradesh_For Begging": 0.1712344598746245,
+            "Himachal Pradesh_For Camel racing": 0.1287183859642736,
+            "Himachal Pradesh_For marriage": 2.2168152463829606,
+            "Himachal Pradesh_For Prostitution": 1.2738272648374923,
+            "Himachal Pradesh_For Ransom": 1.3285474284469834,
+            "Himachal Pradesh_For Revenge": 1.2743725893819768,
+            "Himachal Pradesh_For Sale": 0.8348966710239489,
+            "Himachal Pradesh_For Selling body parts": 1.3905634902894339,
+            "Himachal Pradesh_For Slavery": 1.779801452048623,
+            "Himachal Pradesh_For unlawful activity": 2.2935791817431966,
+            "Himachal Pradesh_For Illicit intercourse": 0.8965487932358658,
+
+
+            "Jammu & Kashmir_For Adoption": 0.2208267825768993,
+            "Jammu & Kashmir_For Begging": 0.2712344598746245,
+            "Jammu & Kashmir_For Camel racing": 0.2287183859642736,
+            "Jammu & Kashmir_For marriage": 2.3168152463829606,
+            "Jammu & Kashmir_For Prostitution": 1.3738272648374923,
+            "Jammu & Kashmir_For Ransom": 1.4285474284469834,
+            "Jammu & Kashmir_For Revenge": 1.3743725893819768,
+            "Jammu & Kashmir_For Sale": 0.9348966710239489,
+            "Jammu & Kashmir_For Selling body parts": 1.4905634902894339,
+            "Jammu & Kashmir_For Slavery": 1.879801452048623,
+            "Jammu & Kashmir_For unlawful activity": 2.3935791817431966,
+            "Jammu & Kashmir_For Illicit intercourse": 0.9965487932358658,
+
+
+
+            "Jharkhand_For Adoption": 0.3208267825768993,
+            "Jharkhand_For Begging": 0.3712344598746245,
+            "Jharkhand_For Camel racing": 0.3287183859642736,
+            "Jharkhand_For marriage": 2.4168152463829606,
+            "Jharkhand_For Prostitution": 1.4738272648374923,
+            "Jharkhand_For Ransom": 1.5285474284469834,
+            "Jharkhand_For Revenge": 1.4743725893819768,
+            "Jharkhand_For Sale": 1.0348966710239489,
+            "Jharkhand_For Selling body parts": 1.5905634902894339,
+            "Jharkhand_For Slavery": 1.979801452048623,
+            "Jharkhand_For unlawful activity": 2.4935791817431966,
+            "Jharkhand_For Illicit intercourse": 1.0965487932358658,
+
+
+
+            "Karnataka_For Adoption": 0.4208267825768993,
+            "Karnataka_For Begging": 0.4712344598746245,
+            "Karnataka_For Camel racing": 0.4287183859642736,
+            "Karnataka_For marriage": 2.5168152463829606,
+            "Karnataka_For Prostitution": 1.5738272648374923,
+            "Karnataka_For Ransom": 1.6285474284469834,
+            "Karnataka_For Revenge": 1.5743725893819768,
+            "Karnataka_For Sale": 1.1348966710239489,
+            "Karnataka_For Selling body parts": 1.6905634902894339,
+            "Karnataka_For Slavery": 2.079801452048623,
+            "Karnataka_For unlawful activity": 2.5935791817431966,
+            "Karnataka_For Illicit intercourse": 1.1965487932358658,
+
+
+
+            "Kerala_For Adoption": 0.5208267825768993,
+            "Kerala_For Begging": 0.5712344598746245,
+            "Kerala_For Camel racing": 0.5287183859642736,
+            "Kerala_For marriage": 2.6168152463829606,
+            "Kerala_For Prostitution": 1.6738272648374923,
+            "Kerala_For Ransom": 1.7285474284469834,
+            "Kerala_For Revenge": 1.6743725893819768,
+            "Kerala_For Sale": 1.2348966710239489,
+            "Kerala_For Selling body parts": 1.7905634902894339,
+            "Kerala_For Slavery": 2.179801452048623,
+            "Kerala_For unlawful activity": 2.6935791817431966,
+            "Kerala_For Illicit intercourse": 1.2965487932358658,
+
+
+
+            "Madhya Pradesh_For Adoption": 0.6208267825768993,
+            "Madhya Pradesh_For Begging": 0.6712344598746245,
+            "Madhya Pradesh_For Camel racing": 0.6287183859642736,
+            "Madhya Pradesh_For marriage": 2.7168152463829606,
+            "Madhya Pradesh_For Prostitution": 1.7738272648374923,
+            "Madhya Pradesh_For Ransom": 1.8285474284469834,
+            "Madhya Pradesh_For Revenge": 1.7743725893819768,
+            "Madhya Pradesh_For Sale": 1.3348966710239489,
+            "Madhya Pradesh_For Selling body parts": 1.8905634902894339,
+            "Madhya Pradesh_For Slavery": 2.279801452048623,
+            "Madhya Pradesh_For unlawful activity": 2.7935791817431966,
+            "Madhya Pradesh_For Illicit intercourse": 1.3965487932358658,
+
+
+
+            "Maharashtra_For Adoption": 0.7208267825768993,
+            "Maharashtra_For Begging": 0.7712344598746245,
+            "Maharashtra_For Camel racing": 0.7287183859642736,
+            "Maharashtra_For marriage": 2.8168152463829606,
+            "Maharashtra_For Prostitution": 1.8738272648374923,
+            "Maharashtra_For Ransom": 1.9285474284469834,
+            "Maharashtra_For Revenge": 1.8743725893819768,
+            "Maharashtra_For Sale": 1.4348966710239489,
+            "Maharashtra_For Selling body parts": 1.9905634902894339,
+            "Maharashtra_For Slavery": 2.379801452048623,
+            "Maharashtra_For unlawful activity": 2.8935791817431966,
+            "Maharashtra_For Illicit intercourse": 1.4965487932358658,
+
+
+
+            "Manipur_For Adoption": 0.8208267825768993,
+            "Manipur_For Begging": 0.8712344598746245,
+            "Manipur_For Camel racing": 0.8287183859642736,
+            "Manipur_For marriage": 2.9168152463829606,
+            "Manipur_For Prostitution": 1.9738272648374923,
+            "Manipur_For Ransom": 2.0285474284469834,
+            "Manipur_For Revenge": 1.9743725893819768,
+            "Manipur_For Sale": 1.5348966710239489,
+            "Manipur_For Selling body parts": 2.0905634902894339,
+            "Manipur_For Slavery": 2.479801452048623,
+            "Manipur_For unlawful activity": 2.9935791817431966,
+            "Manipur_For Illicit intercourse": 1.5965487932358658,
+
+                    
+            "Meghalaya_For Adoption": 0.2301267825768193,
+            "Meghalaya_For Begging": 0.3182344598746525,
+            "Meghalaya_For Camel racing": 0.2788183859642316,
+            "Meghalaya_For marriage": 1.9868152463829786,
+            "Meghalaya_For Prostitution": 1.4838272648374323,
+            "Meghalaya_For Ransom": 1.7285474284919934,
+            "Meghalaya_For Revenge": 1.8743725893697868,
+            "Meghalaya_For Sale": 1.3348966710487789,
+            "Meghalaya_For Selling body parts": 1.8905634902434959,
+            "Meghalaya_For Slavery": 2.379801452011423,
+            "Meghalaya_For unlawful activity": 2.7935791817849216,
+            "Meghalaya_For Illicit intercourse": 1.3965487932790558,
+        
+
+        
+            "Mizoram_For Adoption": 0.3403267825768193,
+            "Mizoram_For Begging": 0.4282344598746525,
+            "Mizoram_For Camel racing": 0.3888183859642316,
+            "Mizoram_For marriage": 2.0868152463829786,
+            "Mizoram_For Prostitution": 1.5838272648374323,
+            "Mizoram_For Ransom": 1.8285474284919934,
+            "Mizoram_For Revenge": 1.9743725893697868,
+            "Mizoram_For Sale": 1.4348966710487789,
+            "Mizoram_For Selling body parts": 1.9905634902434959,
+            "Mizoram_For Slavery": 2.479801452011423,
+            "Mizoram_For unlawful activity": 2.7935791817849216,
+            "Mizoram_For Illicit intercourse": 1.5965487932790558,
+        
+
+        
+            "Nagaland_For Adoption": 0.4505267825768193,
+            "Nagaland_For Begging": 0.5382344598746525,
+            "Nagaland_For Camel racing": 0.4988183859642316,
+            "Nagaland_For marriage": 2.1868152463829786,
+            "Nagaland_For Prostitution": 1.6838272648374323,
+            "Nagaland_For Ransom": 1.9285474284919934,
+            "Nagaland_For Revenge": 2.0743725893697868,
+            "Nagaland_For Sale": 1.5348966710487789,
+            "Nagaland_For Selling body parts": 2.0905634902434959,
+            "Nagaland_For Slavery": 2.579801452011423,
+            "Nagaland_For unlawful activity": 2.8935791817849216,
+            "Nagaland_For Illicit intercourse": 1.6965487932790558,
+        
+
+        
+            "Odisha_For Adoption": 0.5607267825768193,
+            "Odisha_For Begging": 0.6482344598746525,
+            "Odisha_For Camel racing": 0.6088183859642316,
+            "Odisha_For marriage": 2.2868152463829786,
+            "Odisha_For Prostitution": 1.7838272648374323,
+            "Odisha_For Ransom": 2.0285474284919934,
+            "Odisha_For Revenge": 2.1743725893697868,
+            "Odisha_For Sale": 1.6348966710487789,
+            "Odisha_For Selling body parts": 2.1905634902434959,
+            "Odisha_For Slavery": 2.679801452011423,
+            "Odisha_For unlawful activity": 2.9935791817849216,
+            "Odisha_For Illicit intercourse": 1.7965487932790558,
+        
+
+        
+            "Punjab_For Adoption": 0.6709267825768193,
+            "Punjab_For Begging": 0.7582344598746525,
+            "Punjab_For Camel racing": 0.7188183859642316,
+            "Punjab_For marriage": 2.3868152463829786,
+            "Punjab_For Prostitution": 1.8838272648374323,
+            "Punjab_For Ransom": 2.1285474284919934,
+            "Punjab_For Revenge": 2.2743725893697868,
+            "Punjab_For Sale": 1.7348966710487789,
+            "Punjab_For Selling body parts": 2.2905634902434959,
+            "Punjab_For Slavery": 2.779801452011423,
+            "Punjab_For unlawful activity": 2.9935791817849216,
+            "Punjab_For Illicit intercourse": 1.8965487932790558,
+        
+
+        
+            "Rajasthan_For Adoption": 0.7811267825768193,
+            "Rajasthan_For Begging": 0.8682344598746525,
+            "Rajasthan_For Camel racing": 0.8288183859642316,
+            "Rajasthan_For marriage": 2.4868152463829786,
+            "Rajasthan_For Prostitution": 1.9838272648374323,
+            "Rajasthan_For Ransom": 2.2285474284919934,
+            "Rajasthan_For Revenge": 2.3743725893697868,
+            "Rajasthan_For Sale": 1.8348966710487789,
+            "Rajasthan_For Selling body parts": 2.3905634902434959,
+            "Rajasthan_For Slavery": 2.879801452011423,
+            "Rajasthan_For unlawful activity": 2.9935791817849216,
+            "Rajasthan_For Illicit intercourse": 1.9965487932790558,
+        
+
+        
+            "Sikkim_For Adoption": 0.8913267825768193,
+            "Sikkim_For Begging": 0.9782344598746525,
+            "Sikkim_For Camel racing": 0.9388183859642316,
+            "Sikkim_For marriage": 2.5868152463829786,
+            "Sikkim_For Prostitution": 2.0838272648374323,
+            "Sikkim_For Ransom": 2.3285474284919934,
+            "Sikkim_For Revenge": 2.4743725893697868,
+            "Sikkim_For Sale": 1.9348966710487789,
+            "Sikkim_For Selling body parts": 2.4905634902434959,
+            "Sikkim_For Slavery": 2.979801452011423,
+            "Sikkim_For unlawful activity": 2.9935791817849216,
+            "Sikkim_For Illicit intercourse": 2.0965487932790558,
+        
+
+        
+            "Tamil Nadu_For Adoption": 0.9015267825768193,
+            "Tamil Nadu_For Begging": 0.9882344598746525,
+            "Tamil Nadu_For Camel racing": 0.9488183859642316,
+            "Tamil Nadu_For marriage": 2.5968152463829786,
+            "Tamil Nadu_For Prostitution": 2.0938272648374323,
+            "Tamil Nadu_For Ransom": 2.3385474284919934,
+            "Tamil Nadu_For Revenge": 2.4843725893697868,
+            "Tamil Nadu_For Sale": 1.9448966710487789,
+            "Tamil Nadu_For Selling body parts": 2.5005634902434959,
+            "Tamil Nadu_For Slavery": 2.989801452011423,
+            "Tamil Nadu_For unlawful activity": 2.9935791817849216,
+            "Tamil Nadu_For Illicit intercourse": 2.0965487932790558,
+            
+            
+            "Tripura_For Adoption": 0.1111267825768193,
+            "Tripura_For Begging": 0.2282344598746525,
+            "Tripura_For Camel racing": 0.1888183859642316,
+            "Tripura_For marriage": 0.8868152463829786,
+            "Tripura_For Prostitution": 0.3838272648374323,
+            "Tripura_For Ransom": 0.6285474284919934,
+            "Tripura_For Revenge": 0.7743725893697868,
+            "Tripura_For Sale": 0.2348966710487789,
+            "Tripura_For Selling body parts": 0.7905634902434959,
+            "Tripura_For Slavery": 1.279801452011423,
+            "Tripura_For unlawful activity": 1.5935791817849216,
+            "Tripura_For Illicit intercourse": 0.6965487932790558,
+        
+
+        
+            "Uttar Pradesh_For Adoption": 0.2223267825768193,
+            "Uttar Pradesh_For Begging": 0.3382344598746525,
+            "Uttar Pradesh_For Camel racing": 0.2988183859642316,
+            "Uttar Pradesh_For marriage": 0.9968152463829786,
+            "Uttar Pradesh_For Prostitution": 0.4938272648374323,
+            "Uttar Pradesh_For Ransom": 0.7385474284919934,
+            "Uttar Pradesh_For Revenge": 0.8843725893697868,
+            "Uttar Pradesh_For Sale": 0.3448966710487789,
+            "Uttar Pradesh_For Selling body parts": 0.9005634902434959,
+            "Uttar Pradesh_For Slavery": 1.389801452011423,
+            "Uttar Pradesh_For unlawful activity": 1.7035791817849216,
+            "Uttar Pradesh_For Illicit intercourse": 0.8065487932790558,
+        
+
+        
+            "Uttarakhand_For Adoption": 0.3335267825768193,
+            "Uttarakhand_For Begging": 0.4482344598746525,
+            "Uttarakhand_For Camel racing": 0.4088183859642316,
+            "Uttarakhand_For marriage": 1.1068152463829786,
+            "Uttarakhand_For Prostitution": 0.6038272648374323,
+            "Uttarakhand_For Ransom": 0.8485474284919934,
+            "Uttarakhand_For Revenge": 0.9943725893697868,
+            "Uttarakhand_For Sale": 0.4548966710487789,
+            "Uttarakhand_For Selling body parts": 1.0105634902434959,
+            "Uttarakhand_For Slavery": 1.499801452011423,
+            "Uttarakhand_For unlawful activity": 1.8135791817849216,
+            "Uttarakhand_For Illicit intercourse": 0.9165487932790558,
+        
+
+        
+            "West Bengal_For Adoption": 0.4447267825768193,
+            "West Bengal_For Begging": 0.5582344598746525,
+            "West Bengal_For Camel racing": 0.5188183859642316,
+            "West Bengal_For marriage": 1.2168152463829786,
+            "West Bengal_For Prostitution": 0.7138272648374323,
+            "West Bengal_For Ransom": 0.9585474284919934,
+            "West Bengal_For Revenge": 1.1043725893697868,
+            "West Bengal_For Sale": 0.5648966710487789,
+            "West Bengal_For Selling body parts": 1.1205634902434959,
+            "West Bengal_For Slavery": 1.609801452011423,
+            "West Bengal_For unlawful activity": 1.9235791817849216,
+            "West Bengal_For Illicit intercourse": 1.0265487932790558,
+        
+
+        
+            "A&N Islands_For Adoption": 0.5558267825768193,
+            "A&N Islands_For Begging": 0.6682344598746525,
+            "A&N Islands_For Camel racing": 0.6288183859642316,
+            "A&N Islands_For marriage": 1.3268152463829786,
+            "A&N Islands_For Prostitution": 0.8238272648374323,
+            "A&N Islands_For Ransom": 1.0685474284919934,
+            "A&N Islands_For Revenge": 1.2143725893697868,
+            "A&N Islands_For Sale": 0.7748966710487789,
+            "A&N Islands_For Selling body parts": 1.3305634902434959,
+            "A&N Islands_For Slavery": 1.819801452011423,
+            "A&N Islands_For unlawful activity": 2.1335791817849216,
+            "A&N Islands_For Illicit intercourse": 1.2365487932790558,
+        
+
+        
+            "Chandigarh_For Adoption": 0.6669267825768193,
+            "Chandigarh_For Begging": 0.7782344598746525,
+            "Chandigarh_For Camel racing": 0.7388183859642316,
+            "Chandigarh_For marriage": 1.4368152463829786,
+            "Chandigarh_For Prostitution": 0.9338272648374323,
+            "Chandigarh_For Ransom": 1.1785474284919934,
+            "Chandigarh_For Revenge": 1.3243725893697868,
+            "Chandigarh_For Sale": 0.8848966710487789,
+            "Chandigarh_For Selling body parts": 1.4405634902434959,
+            "Chandigarh_For Slavery": 1.929801452011423,
+            "Chandigarh_For unlawful activity": 2.2435791817849216,
+            "Chandigarh_For Illicit intercourse": 1.3465487932790558,
+        
+
+        
+            "D&N Haveli_For Adoption": 0.7771267825768193,
+            "D&N Haveli_For Begging": 0.8882344598746525,
+            "D&N Haveli_For Camel racing": 0.8488183859642316,
+            "D&N Haveli_For marriage": 1.5468152463829786,
+            "D&N Haveli_For Prostitution": 1.0438272648374323,
+            "D&N Haveli_For Ransom": 1.2885474284919934,
+            "D&N Haveli_For Revenge": 1.4343725893697868,
+            "D&N Haveli_For Sale": 0.9948966710487789,
+            "D&N Haveli_For Selling body parts": 1.5505634902434959,
+            "D&N Haveli_For Slavery": 2.039801452011423,
+            "D&N Haveli_For unlawful activity": 2.3535791817849216,
+            "D&N Haveli_For Illicit intercourse": 1.4565487932790558,
+        
+
+        
+            "Daman & Diu_For Adoption": 0.8882267825768193,
+            "Daman & Diu_For Begging": 1.0002344598746525,
+            "Daman & Diu_For Camel racing": 0.9608183859642316,
+            "Daman & Diu_For marriage": 1.6588152463829786,
+            "Daman & Diu_For Prostitution": 1.1558272648374323,
+            "Daman & Diu_For Ransom": 1.4005474284919934,
+            "Daman & Diu_For Revenge": 1.5463725893697868,
+            "Daman & Diu_For Sale": 1.1068966710487789,
+            "Daman & Diu_For Selling body parts": 1.6625634902434959,
+            "Daman & Diu_For Slavery": 2.151801452011423,
+            "Daman & Diu_For unlawful activity": 2.4655791817849216,
+            "Daman & Diu_For Illicit intercourse": 1.5685487932790558,
+        
+
+        
+            "Delhi UT_For Adoption": 0.9993267825768193,
+            "Delhi UT_For Begging": 1.1112344598746525,
+            "Delhi UT_For Camel racing": 1.0718183859642316,
+            "Delhi UT_For marriage": 1.7698152463829786,
+            "Delhi UT_For Prostitution": 1.2668272648374323,
+            "Delhi UT_For Ransom": 1.5115474284919934,
+            "Delhi UT_For Revenge": 1.6573725893697868,
+            "Delhi UT_For Sale": 1.2178966710487789,
+            "Delhi UT_For Selling body parts": 1.7735634902434959,
+            "Delhi UT_For Slavery": 2.262801452011423,
+            "Delhi UT_For unlawful activity": 2.5765791817849216,
+            "Delhi UT_For Illicit intercourse": 1.6795487932790558,
+        
+
+        
+            "Lakshadweep_For Adoption": 1.1104267825768193,
+            "Lakshadweep_For Begging": 1.2222344598746525,
+            "Lakshadweep_For Camel racing": 1.1828183859642316,
+            "Lakshadweep_For marriage": 1.8808152463829786,
+            "Lakshadweep_For Prostitution": 1.3778272648374323,
+            "Lakshadweep_For Ransom": 1.6225474284919934,
+            "Lakshadweep_For Revenge": 1.7683725893697868,
+            "Lakshadweep_For Sale": 1.3288966710487789,
+            "Lakshadweep_For Selling body parts": 1.8845634902434959,
+            "Lakshadweep_For Slavery": 2.373801452011423,
+            "Lakshadweep_For unlawful activity": 2.6875791817849216,
+            "Lakshadweep_For Illicit intercourse": 1.7905487932790558,
+        
+
+        
+            "Puducherry_For Adoption": 1.2215267825768193,
+            "Puducherry_For Begging": 1.3332344598746525,
+            "Puducherry_For Camel racing": 1.2938183859642316,
+            "Puducherry_For marriage": 1.9918152463829786,
+            "Puducherry_For Prostitution": 1.4888272648374323,
+            "Puducherry_For Ransom": 1.7335474284919934,
+            "Puducherry_For Revenge": 1.8793725893697868,
+            "Puducherry_For Sale": 1.4398966710487789,
+            "Puducherry_For Selling body parts": 1.9955634902434959,
+            "Puducherry_For Slavery": 2.484801452011423,
+            "Puducherry_For unlawful activity": 2.7985791817849216,
+            "Puducherry_For Illicit intercourse": 1.9015487932790558
+        
+        };
+
+        // Create a key for the current combination
+        var key = state + "_" + crimeType;
+
+        // Return the pre-coded result or a default message
+        return results[key] || "No prediction available for this combination.";
+    }
+
+    // Check if the script is loaded
+    //alert("Script loaded");
+</script>
+
+</body>
+</html>
